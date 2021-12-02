@@ -4,7 +4,13 @@
     <van-nav-bar
        class="page-nav-bar"
        title="登录"
-    />
+    >
+      <van-icon 
+      slot="left" 
+      name="cross" 
+      @click="$router.back()"
+      />
+    </van-nav-bar>
 
       <van-form @submit="onSubmit" ref="loginForm">
         <van-cell-group>
@@ -104,6 +110,9 @@ export default {
         // console.log('登录成功',res)
         this.$store.commit('setUser',data.data)
         this.$toast.success('登录成功')
+        // 这里登录成功后让页面跳转到我的页面
+        // 这里用back并不是很好的选择，以后会讲
+        this.$router.back()
       }catch(err){
         if(err.response.status === 400){
             console.log('登录失败',err)
@@ -117,9 +126,9 @@ export default {
       // 1.发送验证码，首先校验手机号是否正确 注意，这里是写表单的名称，而且返回对象时promise，所以要用到try  catch
       try{
         await this.$refs.loginForm.validate('mobile')
-        console.log('验证通过');
+        //console.log('验证通过')
       }catch(err){
-        console.log("验证失败",err);
+        console.log("验证失败",err)
       }
       // 2验证通过  显示倒计时
       this.isCountDownShow = true
