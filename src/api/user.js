@@ -29,3 +29,12 @@ export const getUserInfo = () => {
         // }可以进行优化了，在axios请求中同一配置就好了，拦截器
     })
 }
+
+/* 获取用户频道列表
+ */
+export const getUserChannels = () => {
+    return request({
+        method: 'GET',
+        url: '/v1_0/user/channels'
+    })
+}

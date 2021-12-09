@@ -8,6 +8,9 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 
 import 'amfe-flexible'
+
+// 加载 dayjs 初始化配置
+import './utils/dayjs'
 // 注册使用vant组件库
 Vue.use(Vant)
 
