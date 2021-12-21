@@ -1,5 +1,18 @@
 <template>
-      <van-cell class="article-item">
+ <!--
+    Cell 单元格的 to 属性和 VueRouter 中的 RouterLink 导航组件的 to 属性用法是一样的
+    用法参考链接：https://router.vuejs.org/zh/api/#to
+    :to="'/article/' + article.art_id"
+    :to="`/article/${article.art_id}`"
+   -->
+      <van-cell 
+        class="article-item" 
+        :to="{
+            name:'article',
+            params: {
+                articleId: article.art_id
+            }
+        }">
         <div slot="title" class="title">{{article.title}}</div>
         <div slot="label">
             <!-- 这个地方如果我们想让图片循环三次，我们需要利用div把van-img抱起来，这样的话才可以循环，不要直接循环图片 -->

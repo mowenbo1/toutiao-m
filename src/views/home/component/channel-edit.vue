@@ -11,7 +11,7 @@
         round
         size="mini"
         @click="isEdit = !isEdit"
-        >
+      >
        {{ isEdit? '完成':'编辑'}}
        </van-button>
      </van-cell>
@@ -160,6 +160,7 @@ export default {
   //   },
 
      async onAddChannel (channel) {
+      //  这里要注意，一定要有这个
       this.myChannels.push(channel)
 
       // 数据持久化处理
@@ -200,6 +201,7 @@ export default {
       }
     },
     async deleteChannel(channel){
+      // 注意这里是个持久化的删除处理工作，删除工作已经在上一步做完了
       try{
         if(this.user){
            // 已登录，则将数据更新到线上
